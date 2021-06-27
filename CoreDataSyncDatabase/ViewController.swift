@@ -12,6 +12,21 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    lazy var fetchedResultsController: NSFetchedResultsController<Model> = {
+        let fetchedResquest: NSFetchRequest<Model> = Model.fetchRequest()
+        fetchedResquest.sortDescriptors = [NSSortDescriptor.init(key: "added", ascending: true)]
+        
+        let fetchedResultsController = NSFetchedResultsController.init(fetchRequest: fetchedResquest, managedObjectContext: DataModel.shared.context(), sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError()
+        }
+        return fetchedResultsController
+    }()
+    
     @objc func addAction(sender: UIBarButtonItem) {
         let alertController = UIAlertController.init(title: "Add Title", message: nil, preferredStyle: .alert)
         alertController.addTextField { textField in
@@ -31,6 +46,26 @@ class ViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    private func formatter(withDate: Date) -> String {
+        let formatter = DateFormatter.init()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter.string(from: withDate)
+    }
+    
+    private func configureCells(cell: UITableViewCell, indexPath: IndexPath) {
+        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
+        
+        let managedObject = fetchedResultsController.object(at: indexPath)
+        if let title = managedObject.value(forKey: "title") as? String {
+            cell.textLabel?.text = title
+        }
+        if let added = managedObject.value(forKey: "added") as? Date {
+            cell.detailTextLabel?.text = formatter(withDate: added)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -42,15 +77,40 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        if let sections = fetchedResultsController.sections {
+            return sections.count
+        }
         return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sections = fetchedResultsController.sections?[section] {
+            return sections.numberOfObjects
+        }
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell.init()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        configureCells(cell: cell, indexPath: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            let managedObject = fetchedResultsController.object(at: indexPath)
+            DataModel.shared.deleteObject(managedObject: managedObject) { result in
+                switch result {
+                case .failure(let error):
+                    ErrorMessage.shared.presentAlertMessage(withError: error.localizedDescription, owner: self)
+                case .success(_):
+                    break
+                }
+            }
+        default:
+            break
+        }
     }
 }
 
@@ -60,7 +120,22 @@ extension ViewController: NSFetchedResultsControllerDelegate {
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
+        switch type {
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        case .update:
+            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) {
+                configureCells(cell: cell, indexPath: indexPath)
+            }
+        default:
+            break
+        }
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

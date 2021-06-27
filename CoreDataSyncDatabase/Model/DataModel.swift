@@ -13,7 +13,7 @@ class DataModel {
     
     static let shared = DataModel.init()
     
-    private func context() -> NSManagedObjectContext {
+    public func context() -> NSManagedObjectContext {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
