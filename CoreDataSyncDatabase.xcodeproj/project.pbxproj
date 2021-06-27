@@ -14,6 +14,9 @@
 		E29C3DB7267DA6D400E5BBAE /* CoreDataSyncDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E29C3DB5267DA6D400E5BBAE /* CoreDataSyncDatabase.xcdatamodeld */; };
 		E29C3DB9267DA6D500E5BBAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E29C3DB8267DA6D500E5BBAE /* Assets.xcassets */; };
 		E29C3DBC267DA6D500E5BBAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E29C3DBA267DA6D500E5BBAE /* LaunchScreen.storyboard */; };
+		E29C3DC4267DA70900E5BBAE /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C3DC3267DA70900E5BBAE /* DataModel.swift */; };
+		E29C3DC6267DAED900E5BBAE /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C3DC5267DAED900E5BBAE /* ErrorMessage.swift */; };
+		E29C3DC8267DB6FA00E5BBAE /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C3DC7267DB6FA00E5BBAE /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		E29C3DB8267DA6D500E5BBAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E29C3DBB267DA6D500E5BBAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E29C3DBD267DA6D500E5BBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E29C3DC3267DA70900E5BBAE /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		E29C3DC5267DAED900E5BBAE /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		E29C3DC7267DB6FA00E5BBAE /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +67,24 @@
 				E29C3DAC267DA6D400E5BBAE /* AppDelegate.swift */,
 				E29C3DAE267DA6D400E5BBAE /* SceneDelegate.swift */,
 				E29C3DB0267DA6D400E5BBAE /* ViewController.swift */,
+				E29C3DC9267DB76800E5BBAE /* Model */,
 				E29C3DB2267DA6D400E5BBAE /* Main.storyboard */,
 				E29C3DB8267DA6D500E5BBAE /* Assets.xcassets */,
 				E29C3DBA267DA6D500E5BBAE /* LaunchScreen.storyboard */,
 				E29C3DBD267DA6D500E5BBAE /* Info.plist */,
-				E29C3DB5267DA6D400E5BBAE /* CoreDataSyncDatabase.xcdatamodeld */,
 			);
 			path = CoreDataSyncDatabase;
+			sourceTree = "<group>";
+		};
+		E29C3DC9267DB76800E5BBAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E29C3DB5267DA6D400E5BBAE /* CoreDataSyncDatabase.xcdatamodeld */,
+				E29C3DC3267DA70900E5BBAE /* DataModel.swift */,
+				E29C3DC5267DAED900E5BBAE /* ErrorMessage.swift */,
+				E29C3DC7267DB6FA00E5BBAE /* Notification.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +157,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E29C3DC4267DA70900E5BBAE /* DataModel.swift in Sources */,
 				E29C3DB1267DA6D400E5BBAE /* ViewController.swift in Sources */,
 				E29C3DAD267DA6D400E5BBAE /* AppDelegate.swift in Sources */,
+				E29C3DC8267DB6FA00E5BBAE /* Notification.swift in Sources */,
 				E29C3DB7267DA6D400E5BBAE /* CoreDataSyncDatabase.xcdatamodeld in Sources */,
+				E29C3DC6267DAED900E5BBAE /* ErrorMessage.swift in Sources */,
 				E29C3DAF267DA6D400E5BBAE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
