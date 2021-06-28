@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             if let text = alertController.textFields?.first?.text {
                 DataModel.shared.saveObject(title: text) { result in
                     switch result {
-                    case .success(_): Notification.shared.setNotification()
+                    case .success(_): Notification.shared.setNotification(title: text)
                     case .failure(let error): ErrorMessage.shared.presentAlertMessage(withError: error.localizedDescription, owner: self)
                     }
                 }
