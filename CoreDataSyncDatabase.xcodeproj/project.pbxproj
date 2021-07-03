@@ -17,6 +17,9 @@
 		E29C3DC4267DA70900E5BBAE /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C3DC3267DA70900E5BBAE /* DataModel.swift */; };
 		E29C3DC6267DAED900E5BBAE /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C3DC5267DAED900E5BBAE /* ErrorMessage.swift */; };
 		E29C3DC8267DB6FA00E5BBAE /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C3DC7267DB6FA00E5BBAE /* Notification.swift */; };
+		E2AC918F268C257200652E57 /* PersistentHistoryObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC918E268C257200652E57 /* PersistentHistoryObserver.swift */; };
+		E2AC9191268C25E700652E57 /* AppTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC9190268C25E700652E57 /* AppTarget.swift */; };
+		E2BD18AD26905F490038898F /* LocalNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BD18AC26905F490038898F /* LocalNotificationCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		E29C3DC3267DA70900E5BBAE /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		E29C3DC5267DAED900E5BBAE /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		E29C3DC7267DB6FA00E5BBAE /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		E2AC918E268C257200652E57 /* PersistentHistoryObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentHistoryObserver.swift; sourceTree = "<group>"; };
+		E2AC9190268C25E700652E57 /* AppTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTarget.swift; sourceTree = "<group>"; };
+		E2BD18AC26905F490038898F /* LocalNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 				E29C3DAC267DA6D400E5BBAE /* AppDelegate.swift */,
 				E29C3DAE267DA6D400E5BBAE /* SceneDelegate.swift */,
 				E29C3DB0267DA6D400E5BBAE /* ViewController.swift */,
+				E2BD18AC26905F490038898F /* LocalNotificationCenter.swift */,
 				E29C3DC9267DB76800E5BBAE /* Model */,
 				E29C3DB2267DA6D400E5BBAE /* Main.storyboard */,
 				E29C3DB8267DA6D500E5BBAE /* Assets.xcassets */,
@@ -80,11 +87,21 @@
 			isa = PBXGroup;
 			children = (
 				E29C3DB5267DA6D400E5BBAE /* CoreDataSyncDatabase.xcdatamodeld */,
+				E2BD18AB26905F150038898F /* Data Provider */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E2BD18AB26905F150038898F /* Data Provider */ = {
+			isa = PBXGroup;
+			children = (
 				E29C3DC3267DA70900E5BBAE /* DataModel.swift */,
 				E29C3DC5267DAED900E5BBAE /* ErrorMessage.swift */,
 				E29C3DC7267DB6FA00E5BBAE /* Notification.swift */,
+				E2AC918E268C257200652E57 /* PersistentHistoryObserver.swift */,
+				E2AC9190268C25E700652E57 /* AppTarget.swift */,
 			);
-			path = Model;
+			path = "Data Provider";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,11 +174,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2AC9191268C25E700652E57 /* AppTarget.swift in Sources */,
+				E2BD18AD26905F490038898F /* LocalNotificationCenter.swift in Sources */,
 				E29C3DC4267DA70900E5BBAE /* DataModel.swift in Sources */,
 				E29C3DB1267DA6D400E5BBAE /* ViewController.swift in Sources */,
 				E29C3DAD267DA6D400E5BBAE /* AppDelegate.swift in Sources */,
 				E29C3DC8267DB6FA00E5BBAE /* Notification.swift in Sources */,
 				E29C3DB7267DA6D400E5BBAE /* CoreDataSyncDatabase.xcdatamodeld in Sources */,
+				E2AC918F268C257200652E57 /* PersistentHistoryObserver.swift in Sources */,
 				E29C3DC6267DAED900E5BBAE /* ErrorMessage.swift in Sources */,
 				E29C3DAF267DA6D400E5BBAE /* SceneDelegate.swift in Sources */,
 			);
