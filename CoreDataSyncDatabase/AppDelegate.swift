@@ -12,8 +12,6 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let center = UNUserNotificationCenter.current()
@@ -23,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("ACCESS GRANTED")
             }
         }
+        registerNotificationAction()
         return true
     }
 
@@ -84,7 +83,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
@@ -97,3 +95,17 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 }
 
+extension AppDelegate {
+    private func registerNotificationAction() {
+        if #available(iOS 15.0, *) {
+            let done = UNNotificationAction.init(identifier: "done_id", title: "Mark as completed", options: [], icon: UNNotificationActionIcon.init(systemImageName: "checkmark"))
+            let category = UNNotificationCategory.init(identifier: "SINGLE_ACTION_CATEGORY", actions: [done], intentIdentifiers: [], options: [.customDismissAction])
+            UNUserNotificationCenter.current().setNotificationCategories([category])
+        } else {
+            // Fallback on earlier versions
+            let done = UNNotificationAction.init(identifier: "done_id", title: "Mark as completed", options: [])
+            let category = UNNotificationCategory.init(identifier: "SINGLE_ACTION_CATEGORY", actions: [done], intentIdentifiers: [], options: [.customDismissAction])
+            UNUserNotificationCenter.current().setNotificationCategories([category])
+        }
+    }
+}
