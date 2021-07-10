@@ -91,7 +91,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
+        completionHandler([.banner, .sound])
     }
 }
 
@@ -99,12 +99,12 @@ extension AppDelegate {
     private func registerNotificationAction() {
         if #available(iOS 15.0, *) {
             let done = UNNotificationAction.init(identifier: "done_id", title: "Mark as completed", options: [], icon: UNNotificationActionIcon.init(systemImageName: "checkmark"))
-            let category = UNNotificationCategory.init(identifier: "SINGLE_ACTION_CATEGORY", actions: [done], intentIdentifiers: [], options: [.customDismissAction])
+            let category = UNNotificationCategory.init(identifier: "SINGLE_ACTION_CATEGORY", actions: [done], intentIdentifiers: [], options: [])
             UNUserNotificationCenter.current().setNotificationCategories([category])
         } else {
             // Fallback on earlier versions
             let done = UNNotificationAction.init(identifier: "done_id", title: "Mark as completed", options: [])
-            let category = UNNotificationCategory.init(identifier: "SINGLE_ACTION_CATEGORY", actions: [done], intentIdentifiers: [], options: [.customDismissAction])
+            let category = UNNotificationCategory.init(identifier: "SINGLE_ACTION_CATEGORY", actions: [done], intentIdentifiers: [], options: [])
             UNUserNotificationCenter.current().setNotificationCategories([category])
         }
     }
