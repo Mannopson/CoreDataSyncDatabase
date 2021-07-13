@@ -24,6 +24,8 @@
 		E29C3DC8267DB6FA00E5BBAE /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C3DC7267DB6FA00E5BBAE /* Notification.swift */; };
 		E2AC918F268C257200652E57 /* PersistentHistoryObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC918E268C257200652E57 /* PersistentHistoryObserver.swift */; };
 		E2AC9191268C25E700652E57 /* AppTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC9190268C25E700652E57 /* AppTarget.swift */; };
+		E2AD3D13269D5B3A00A0B3CD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD3D12269D5B3A00A0B3CD /* CoreDataStack.swift */; };
+		E2AD3D14269D5B3A00A0B3CD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD3D12269D5B3A00A0B3CD /* CoreDataStack.swift */; };
 		E2BD18AD26905F490038898F /* LocalNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BD18AC26905F490038898F /* LocalNotificationCenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,7 @@
 		E29C3DC7267DB6FA00E5BBAE /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		E2AC918E268C257200652E57 /* PersistentHistoryObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentHistoryObserver.swift; sourceTree = "<group>"; };
 		E2AC9190268C25E700652E57 /* AppTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTarget.swift; sourceTree = "<group>"; };
+		E2AD3D12269D5B3A00A0B3CD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E2BD18AC26905F490038898F /* LocalNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +169,7 @@
 				E29C3DC7267DB6FA00E5BBAE /* Notification.swift */,
 				E2AC918E268C257200652E57 /* PersistentHistoryObserver.swift */,
 				E2AC9190268C25E700652E57 /* AppTarget.swift */,
+				E2AD3D12269D5B3A00A0B3CD /* CoreDataStack.swift */,
 			);
 			path = "Data Provider";
 			sourceTree = "<group>";
@@ -272,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2397FD2269882A400AB82F4 /* NotificationViewController.swift in Sources */,
+				E2AD3D14269D5B3A00A0B3CD /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +290,7 @@
 				E29C3DB1267DA6D400E5BBAE /* ViewController.swift in Sources */,
 				E29C3DAD267DA6D400E5BBAE /* AppDelegate.swift in Sources */,
 				E29C3DC8267DB6FA00E5BBAE /* Notification.swift in Sources */,
+				E2AD3D13269D5B3A00A0B3CD /* CoreDataStack.swift in Sources */,
 				E29C3DB7267DA6D400E5BBAE /* CoreDataSyncDatabase.xcdatamodeld in Sources */,
 				E2AC918F268C257200652E57 /* PersistentHistoryObserver.swift in Sources */,
 				E29C3DC6267DAED900E5BBAE /* ErrorMessage.swift in Sources */,

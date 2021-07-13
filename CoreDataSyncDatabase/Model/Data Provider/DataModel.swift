@@ -14,7 +14,8 @@ class DataModel {
     static let shared = DataModel.init()
     
     public func context() -> NSManagedObjectContext {
-        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.coreDataStack.persistentContainer.viewContext
     }
     
     public func saveObject(title: String, completion: @escaping (Result<Bool, Error>) -> Void) {
